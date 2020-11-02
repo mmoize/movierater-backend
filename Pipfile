@@ -16,6 +16,8 @@ django-extensions = "*"
 python-decouple = "*"
 whitenoise = "*"
 gunicorn = "*"
+dj-database-url = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
