@@ -29,8 +29,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'localhost:4200',
     'muvirater.herokuapp.com',
+    'localhost:4200',
     '127.0.0.1'
 ]
 
