@@ -37,6 +37,7 @@ class CustomAuthTokenSignup(ObtainAuthToken):
 # class for Login
 class CustomAuthTokenLogin(ObtainAuthToken):
     serializer_class = ProfileSerializer
+    permission_classes = (AllowAny,)
 
     def post(self, request, *args, **kwargs):
         print('username', request.data)
