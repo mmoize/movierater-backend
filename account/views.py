@@ -49,6 +49,8 @@ class CustomAuthTokenLogin(ObtainAuthToken):
         user_profile = serializer.data
         return Response({
             'token': token.key,
-            'user_id': user.id,
+            'id': user.id,
+            'email': user.email,
+            'username': user.username
             'user': user_profile
         })
