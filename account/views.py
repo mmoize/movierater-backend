@@ -51,6 +51,6 @@ class CustomAuthTokenLogin(ObtainAuthToken):
             'token': token.key,
             'id': user.id,
             'email': user.email,
-            'username': user.username
+            'username': user.username,
             'user': user_profile
         })
