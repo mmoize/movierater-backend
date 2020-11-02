@@ -1,1 +1,1 @@
-web: gunicorn letsell.wsgi --log-file -
+web: gunicorn movierater.wsgi --log-file -
