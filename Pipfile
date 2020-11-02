@@ -18,6 +18,7 @@ whitenoise = "*"
 gunicorn = "*"
 dj-database-url = "*"
 psycopg2 = "*"
+dj-static = "*"
 
 [requires]
 python_version = "3.7"
