@@ -34,6 +34,8 @@ class CustomAuthTokenSignup(ObtainAuthToken):
         })
 
 
+
+
 # class for Login
 class CustomAuthTokenLogin(ObtainAuthToken):
     serializer_class = ProfileSerializer
