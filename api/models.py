@@ -46,7 +46,7 @@ def Movie_image_path(instance, filename):
 
 class MoviesImage(TimeStampedModel):
     movie= models.ForeignKey(Movie, on_delete=models.CASCADE)
-    image = ResizedImageField(size=[500, 400], upload_to= Movie_image_path)
+    image = ResizedImageField( upload_to= Movie_image_path)
     user = models.ForeignKey(User, default="1", on_delete=models.CASCADE)
 
 
