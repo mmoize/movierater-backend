@@ -4,7 +4,7 @@ from rest_framework import routers
 from .views import MoviewViewSet, RatingViewSet, NewMovieViewset
 
 router = routers.DefaultRouter()
-# router.register('movies', MoviewViewSet)
+router.register('movies', MoviewViewSet)
 router.register('ratings', RatingViewSet)
 
 newmovie = MoviewViewSet.as_view({'post': 'create'})
