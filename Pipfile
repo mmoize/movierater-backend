@@ -19,6 +19,9 @@ gunicorn = "*"
 dj-database-url = "*"
 psycopg2 = "*"
 dj-static = "*"
+django-resized = "*"
+boto3 = "*"
+django-storages = "*"
 
 [requires]
 python_version = "3.7"
