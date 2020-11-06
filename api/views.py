@@ -50,7 +50,7 @@ class NewMovieViewset(viewsets.ModelViewSet):
 class MoviewViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    parser_classes = [MultipartJsonParser, JSONParser,]
+    parser_classes = [MultipartJsonParser,]
     permission_classes = (IsAuthenticated, )
     authentication_classes = (TokenAuthentication, )
 
