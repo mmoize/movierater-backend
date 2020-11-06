@@ -30,6 +30,10 @@ class Movie(TimeStampedModel):
         else:
             return 0
 
+    class Meta:
+        ordering = ['-created',]
+        
+
 # Rating Model keeps record of the user's actions.
 class Rating(TimeStampedModel):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
@@ -40,6 +44,7 @@ class Rating(TimeStampedModel):
     class Meta:
         unique_together = (('user', 'movie'),)
         index_together =  (('user', 'movie'),)
+    
 
 def Movie_image_path(instance, filename):
     return os.path.join('MoviesImage', str(instance.movie.user), filename)
