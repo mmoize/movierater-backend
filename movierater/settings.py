@@ -168,5 +168,5 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:4200',
     'http://localhost',
     'https://localhost',
-    'https://test-cef57'
+    'https://test-cef57.web.app'
 ]
