@@ -12,6 +12,7 @@ from core.renderers import JSONRenderer
 from django.http import HttpResponse, JsonResponse
 from account.serializers import UserSerializer
 from .models import Sleeker
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 @csrf_exempt
@@ -42,10 +43,15 @@ def CreateSleeker(request, *args, **kwargs):
 
 @csrf_exempt
 @permission_classes([IsAuthenticated])
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def sleekerfeed(request):
 
     if request.method == 'GET':
 
         qs = Sleeker.objects.all()
         serializer =  SleekerSerializers(qs, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        data = {}
+        post = serializer.data
+        print("this is data", post)
+
+        return HttpResponse(post)
