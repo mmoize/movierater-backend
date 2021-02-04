@@ -13,6 +13,8 @@ from django.http import HttpResponse, JsonResponse
 from account.serializers import UserSerializer
 from .models import Sleeker
 from django.http import HttpResponse, JsonResponse
+from rest_framework.permissions import AllowAny
+from rest_framework.viewsets import ModelViewSet
 
 # Create your views here.
 @csrf_exempt
@@ -54,4 +56,20 @@ def sleekerfeed(request):
         post = serializer.data
 
 
+
+
         return JsonResponse(serializer.data, safe=False)
+
+
+
+class getPost(ModelViewSet):
+    serializer_class = SleekerSerializers
+    #queryset = Sleeker.objects.all()
+    permission_classes = (AllowAny, )
+
+    def get_queryset(self, *args, **kwargs):
+
+        querysets = Sleeker.objects.all()
+  
+
+        return querysets
