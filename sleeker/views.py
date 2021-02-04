@@ -52,6 +52,6 @@ def sleekerfeed(request):
         serializer =  SleekerSerializers(qs, many=True)
         data = {}
         post = serializer.data
-        print("this is data", post)
 
-        return HttpResponse(post)
+
+        return JsonResponse(serializer.data, safe=False)
