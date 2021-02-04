@@ -3,4 +3,4 @@ from . models import Sleeker
 
 # Register your models here.
 
-# admin.site.register(Sleeker)
+admin.site.register(Sleeker)
