@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls', namespace='accounts')),
     path('api/', include('api.urls', namespace='api')),
+    path('sleeker/', include('sleeker.urls', namespace='sleeker')),
 
 ]
