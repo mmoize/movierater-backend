@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'muvirater.herokuapp.com',
+    'film-raters.herokuapp.com',
     'localhost:4200',
     '127.0.0.1'
 ]
