@@ -9,8 +9,6 @@ from django_resized import ResizedImageField
 def get_image_path(instance, filename):
     return os.path.join('movies', str(instance.user), filename)
 
-
-
 # Movie Model creates a movie item, with three fields: title, description, image cover
 class Movie(TimeStampedModel):
     title = models.CharField(max_length=30)
@@ -33,7 +31,6 @@ class Movie(TimeStampedModel):
     class Meta:
         ordering = ['-created',]
         
-
 # Rating Model keeps record of the user's actions.
 class Rating(TimeStampedModel):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
@@ -51,7 +48,6 @@ def Movie_image_path(instance, filename):
 
 class MoviesImage(TimeStampedModel):
     movie= models.ForeignKey(Movie, on_delete=models.CASCADE)
-    #image = ResizedImageField( upload_to= Movie_image_path)
     image = models.ImageField(upload_to= Movie_image_path)
     user = models.ForeignKey(User, default="1", on_delete=models.CASCADE)
 
