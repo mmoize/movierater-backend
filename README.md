@@ -4,7 +4,7 @@ Backend Logic for "Movie Rater"
 # MovieRate
 
 live test---------
-Email: tilo@gmail.com
-Password: anothertilo
+Email: coming soon
+Password: coming soon
 
 # https://rb.gy/alywiq
