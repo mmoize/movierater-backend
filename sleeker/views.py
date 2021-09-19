@@ -34,15 +34,6 @@ def CreateSleeker(request, *args, **kwargs):
 
 
 
-
-# @authentication_classes([SessionAuthentication, BasicAuthentication])
-# @permission_classes([IsAuthenticated])
-# @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
-# def sleekerfeed(request, *args, **kwargs):
-#     qs = Sleeker.objects.all()
-
-#     return Response(qs)
-
 @csrf_exempt
 @permission_classes([IsAuthenticated])
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
@@ -73,3 +64,12 @@ class getPost(ModelViewSet):
   
 
         return querysets
+
+
+# @authentication_classes([SessionAuthentication, BasicAuthentication])
+# @permission_classes([IsAuthenticated])
+# @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+# def sleekerfeed(request, *args, **kwargs):
+#     qs = Sleeker.objects.all()
+
+#     return Response(qs)
