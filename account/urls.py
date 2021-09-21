@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from .views import CustomAuthTokenSignup, CustomAuthTokenLogin
+from .views import CustomAuthTokenSignup, CustomAuthTokenLogin, ProfileRetrieveAPiView
 
 from rest_framework import routers
 
@@ -13,6 +13,7 @@ app_name = 'account'
 urlpatterns = [
     path('signup', CustomAuthTokenSignup.as_view()),
     path('login', CustomAuthTokenLogin.as_view()),
+    path('profile/<str:username>/', ProfileRetrieveAPiView.as_view()),
     path('api/', include(router.urls)),
     #path('users', UserRegisViewSet.as_view(), name="user_registration"),
 ]

@@ -1,16 +1,18 @@
+from copy import Error
 from django.shortcuts import render
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework import viewsets, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from .serializers import UserSerializer
+from .serializers import UserSerializer, ProfileSerializer
 from rest_framework.views import APIView
 from .renderers import UserJSONRenderer
 from django.http import HttpResponse, JsonResponse
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import Profile
 from .serializers import ProfileSerializer
+from rest_framework.generics import RetrieveAPIView
 
 
 # User Login / Sign up the class customAuthToken, receives two fields for password and username
@@ -56,3 +58,21 @@ class CustomAuthTokenLogin(ObtainAuthToken):
             'username': user.username,
             'user': user_profile
         })
+
+
+class ProfileRetrieveAPiView(RetrieveAPIView):
+    permission_classes = (AllowAny,)
+    renderer_classes = (UserJSONRenderer,)
+    serializer_class = ProfileSerializer
+
+    def retrieve(self, request, username, *args, **kwargs):
+
+
+        try:
+            profile = Profile.objects.select_related('user').get(user__username=username)
+        except Profile.DoesNotExist:
+            raise Error
+
+        serializer = self.serializer_class(profile)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
