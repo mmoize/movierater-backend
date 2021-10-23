@@ -13,6 +13,7 @@ def get_image_path(instance, filename):
 # Profile class Creates a profile every time a user signs up
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=255, blank=True)
     first_name = models.CharField(max_length=255, blank=True)
     country = models.CharField(max_length=30, blank=True)
     city = models.CharField(max_length=30, blank=True)
@@ -20,6 +21,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to= get_image_path, default="default.png") #imageField given a default incase, an image is not provided
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
+
 
 
 
@@ -32,6 +34,7 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profile = Profile(user=instance)
+        profile.username = User.username
         profile.save()
 post_save.connect(create_user_profile, sender=User, dispatch_uid="users-profilecreation-signal")
 
