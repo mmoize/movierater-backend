@@ -1,13 +1,18 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import os
+import random
 
 from django.db import models
 from django.contrib.auth.models import User
 
+random_number = random.randint(1, 11)
+
 def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.user), filename)
 
+
+DEFAULT = 'default-'+ str(random_number) + '.png'
 
 
 # Profile class Creates a profile every time a user signs up
@@ -18,7 +23,7 @@ class Profile(models.Model):
     country = models.CharField(max_length=30, blank=True)
     city = models.CharField(max_length=30, blank=True)
     bio = models.TextField(max_length=255, blank=True)
-    image = models.ImageField(upload_to= get_image_path, default="default.png") #imageField given a default incase, an image is not provided
+    image = models.ImageField(upload_to= get_image_path, default=DEFAULT) #imageField given a default incase, an image is not provided
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
