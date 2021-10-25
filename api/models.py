@@ -59,3 +59,5 @@ class MoviesImage(TimeStampedModel):
 
     class Meta:
         ordering = ['-created',]
+
+

@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'storages',
-    'sleeker.apps.SleekerConfig'
+    'sleeker.apps.SleekerConfig',
+    'movies.apps.MoviesConfig'
 
 ]
 
